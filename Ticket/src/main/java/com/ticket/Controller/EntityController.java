@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.yaml.snakeyaml.util.ArrayUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticket.Model.*;
 import com.ticket.Services.*;
 
@@ -199,7 +201,15 @@ public class EntityController {
 		Film f = fS.getFilmById(id);
 		List<Rodzaj> rodzaje = rodzS.listaRodzajow();
 		//zarezerwowane miejsca
-		List<Bilet> rezerwacje = bS.zarMiejsca(f.getId());
+		List<Integer> rezerwacje = bS.zarMiejsca(f.getId());
+		
+		/*int[] arr = new int[rezerwacje.size()];
+		for(int i = 0; i < rezerwacje.size(); i++) {
+		    if (rezerwacje.get(i) != null) {
+		        arr[i] = rezerwacje.get(i);
+		    }
+		}*/
+
 		request.setAttribute("rezerwacje", rezerwacje);
 		//
 		request.setAttribute("film", f);

@@ -24,31 +24,6 @@
 						</c:when>
 					</c:choose></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><c:choose>
-						<c:when test="${empty loggedInUser}">
-							<a href="#"><span class="glyphicon glyphicon-user"></span>Sign
-								Up</a>
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${not empty loggedInUser}">
-							<a href="#"><span class="glyphicon glyphicon-user"></span>Hello
-								${loggedInUser}!</a>
-
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${empty loggedInUser}">
-							<a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${not empty loggedInUser}">
-							<a href="/logout">Logout</a>
-						</c:when>
-					</c:choose></li>
-			</ul>
 		</nav>
 	</div>
 	<c:choose>

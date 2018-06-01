@@ -47,11 +47,11 @@ public class BiletService {
 		return bRepository.getBiletByMiejsce(miejsce);
 	}
 	
-	public List<Bilet> zarMiejsca(int film){
-		List<Bilet> bilety = new ArrayList<>();
+	public List<Integer> zarMiejsca(int film){
+		List<Integer> miejsca = new ArrayList<>();
 		for(Bilet b:bRepository.findBiletByFilmId(film)) {
-			bilety.add(b);
+			miejsca.add(b.getMiejsce());
 		}
-		return bilety;
+		return miejsca;
 	}
 }
