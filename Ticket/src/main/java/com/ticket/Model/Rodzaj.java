@@ -13,8 +13,6 @@ import javax.persistence.Table;
 @Table(name="rodzaj")
 public class Rodzaj implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	private int id;
 	private String nazwa;

@@ -15,8 +15,6 @@ import javax.persistence.Table;
 @Table(name="film")
 public class Film implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	private int id;
 	private String tytul;
@@ -30,30 +28,30 @@ public class Film implements Serializable {
 	@JoinColumn(name="rezyser")
 	private Rezyser rezyser;
 	
-	@OneToMany(mappedBy="film", fetch=FetchType.EAGER)
-	private Set<Bilet> bilety;
+	@ManyToOne
+	@JoinColumn(name="wersja")
+	private Wersja wersja;
 	
-	@OneToMany(mappedBy="film", fetch=FetchType.EAGER)
-	private Set<Wersja> wersje;
-	
-	@OneToMany(mappedBy="film", fetch=FetchType.EAGER)
-	private Set<Termin> terminy;
+	@ManyToOne
+	@JoinColumn(name="termin")
+	private Termin termin;
 	
 	public Film() {
 		
 	}
 
-	public Film(String tytul, String opis, Gatunek gatunek, Rezyser rezyser, Set<Bilet> bilety, Set<Wersja> wersje,
-			Set<Termin> terminy) {
+
+	public Film(String tytul, String opis, Gatunek gatunek, Rezyser rezyser, Wersja wersja, Termin termin) {
 		super();
 		this.tytul = tytul;
 		this.opis = opis;
 		this.gatunek = gatunek;
 		this.rezyser = rezyser;
-		this.bilety = bilety;
-		this.wersje = wersje;
-		this.terminy = terminy;
+		this.wersja = wersja;
+		this.termin = termin;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -95,30 +93,25 @@ public class Film implements Serializable {
 		this.rezyser = rezyser;
 	}
 
-	public Set<Bilet> getBilety() {
-		return bilety;
+
+	public Wersja getWersja() {
+		return wersja;
 	}
 
-	public void setBilety(Set<Bilet> bilety) {
-		this.bilety = bilety;
+
+	public void setWersja(Wersja wersja) {
+		this.wersja = wersja;
 	}
 
-	public Set<Wersja> getWersje() {
-		return wersje;
+
+	public Termin getTermin() {
+		return termin;
 	}
 
-	public void setWersje(Set<Wersja> wersje) {
-		this.wersje = wersje;
-	}
 
-	public Set<Termin> getTerminy() {
-		return terminy;
+	public void setTermin(Termin termin) {
+		this.termin = termin;
 	}
-
-	public void setTerminy(Set<Termin> terminy) {
-		this.terminy = terminy;
-	}
-	
 }
 
 

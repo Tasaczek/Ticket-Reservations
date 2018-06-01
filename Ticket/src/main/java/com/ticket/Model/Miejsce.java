@@ -12,15 +12,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="miejsce")
 public class Miejsce implements Serializable {
-
-	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private int id;
 	private int numer;
 	private boolean zarezerwowane;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@PrimaryKeyJoinColumn
 	private Bilet bilet;
 

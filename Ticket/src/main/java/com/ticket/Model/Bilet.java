@@ -2,7 +2,6 @@ package com.ticket.Model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,12 +13,11 @@ import javax.persistence.Table;
 @Table(name="bilet")
 public class Bilet implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	private int id;
 	private String imie;
 	private String nazwisko;
+	private int miejsce;
 	
 	@ManyToOne
 	@JoinColumn(name="film")
@@ -27,16 +25,16 @@ public class Bilet implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="rodzaj")
-	private Film rodzaj;
+	private Rodzaj rodzaj;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Miejsce miejsce;
+	//@OneToOne(mappedBy="bilet")
+	//private Miejsce miejsce;
 	
 	public Bilet() {
 		
 	}
 
-	public Bilet(String imie, String nazwisko, Film film, Film rodzaj, Miejsce miejsce) {
+	public Bilet(String imie, String nazwisko, Film film, Rodzaj rodzaj, int miejsce) {
 		super();
 		this.imie = imie;
 		this.nazwisko = nazwisko;
@@ -77,19 +75,20 @@ public class Bilet implements Serializable {
 		this.film = film;
 	}
 
-	public Film getRodzaj() {
+	public Rodzaj getRodzaj() {
 		return rodzaj;
 	}
 
-	public void setRodzaj(Film rodzaj) {
+	public void setRodzaj(Rodzaj rodzaj) {
 		this.rodzaj = rodzaj;
 	}
 
-	public Miejsce getMiejsce() {
+	public int getMiejsce() {
 		return miejsce;
 	}
 
-	public void setMiejsce(Miejsce miejsce) {
+	public void setMiejsce(int miejsce) {
 		this.miejsce = miejsce;
 	}
+
 }

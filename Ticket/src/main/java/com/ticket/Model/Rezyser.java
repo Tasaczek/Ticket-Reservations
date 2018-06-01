@@ -14,8 +14,6 @@ import javax.persistence.Table;
 @Table(name="rezyser")
 public class Rezyser implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	private int id;
 	private String imie;

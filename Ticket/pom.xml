@@ -69,6 +69,26 @@
 		    <version>2.5</version>
 		    <scope>provided</scope>
 		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -80,5 +100,5 @@
 		</plugins>
 	</build>
 
-
+	
 </project>
