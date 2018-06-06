@@ -16,8 +16,8 @@
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Looking for</a></li>
-				<li><a href="/movies">Films</a></li>
+				<li><a href="#">Szukaj</a></li>
+				<li><a href="/movies">Filmy</a></li>
 				<li><c:choose>
 						<c:when test="${not empty power}">
 							<a href="#">Edycja</a>
@@ -32,12 +32,12 @@
 		<c:when test="${mode=='MODE_HOME'}">
 			<div class="container" id="homediv">
 				<div class="jumbotron text-center">
-					<h1>Welcome to Main Page of the Cinema</h1>
+					<h1>Strona główna kina</h1>
 				</div>
 			</div>
 
 			<div class="alert alert-success">
-				<h4>Session1: Current week</h4>
+				<h4>Sesja 1: Obecny weekend!</h4>
 			</div>
 		</c:when>
 

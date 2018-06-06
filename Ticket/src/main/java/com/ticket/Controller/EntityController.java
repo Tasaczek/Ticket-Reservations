@@ -1,5 +1,7 @@
 package com.ticket.Controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -202,14 +205,6 @@ public class EntityController {
 		List<Rodzaj> rodzaje = rodzS.listaRodzajow();
 		//zarezerwowane miejsca
 		List<Integer> rezerwacje = bS.zarMiejsca(f.getId());
-		
-		/*int[] arr = new int[rezerwacje.size()];
-		for(int i = 0; i < rezerwacje.size(); i++) {
-		    if (rezerwacje.get(i) != null) {
-		        arr[i] = rezerwacje.get(i);
-		    }
-		}*/
-
 		request.setAttribute("rezerwacje", rezerwacje);
 		//
 		request.setAttribute("film", f);
@@ -220,23 +215,23 @@ public class EntityController {
 	
 	@PostMapping(value="/reservations")
 	public String rezerwujBiletPost(@ModelAttribute Bilet bilet, HttpServletRequest request, BindingResult bindingResult) {
-		if(bS.getBiletByMiejsce(bilet.getMiejsce())==null)
-			bS.rezerwujBilet(bilet);
-		else
-		{
-		// ale to tylko na chwile poki nie ogarne tych zmian jak je robic w tablicy tam!
-			request.setAttribute("error", "Miejsce zajete");
-			request.setAttribute("mode", "MODE_LOGIN");
-			return "login";
-		//	
+		
+		if(request.getParameter("miejsce")==null) {
+			request.setAttribute("error", "Wybierz miejsce!");
 		}
-			
+		else {
+			if(bS.getBiletByMiejsce(bilet.getMiejsce())==null)
+				bS.rezerwujBilet(bilet);
+			return "redirect:/tickets";
+		}
 		return "filmy";
 	}
 	
-	public String usunBilet() {
-		
-		return "index";
+	@RequestMapping(value="/del-ticket")
+	public String usunBilet(@RequestParam int id) {
+		bS.usunBilet(id);
+	
+		return "redirect:/tickets";
 	}
 
 	public String edytujBilet() {

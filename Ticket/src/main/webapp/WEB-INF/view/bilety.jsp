@@ -16,8 +16,8 @@
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Looking for</a></li>
-				<li><a href="/movies">Films</a></li>
+				<li><a href="#">Szukaj</a></li>
+				<li><a href="/movies">Filmy</a></li>
 				<li><c:choose>
 						<c:when test="${not empty power}">
 							<a href="#">Edycja</a>
@@ -53,9 +53,9 @@
 										<td>${bilet.rodzaj.nazwa}</td>
 										<td>${bilet.rodzaj.cena} zł</td>
 										<td>${bilet.miejsce}</td>
-										<td><a href="/delete-user?id=${bilet.id}"><span
+										<td><a href="/del-ticket?id=${bilet.id}"><span
 												class="glyphicon glyphicon-trash"></span></a> &nbsp; <a
-											href="/edit-user?id=${bilet.id}"><span
+											href="#"><span
 												class="glyphicon glyphicon-pencil"></span></a></td>
 									</tr>
 								</c:forEach>

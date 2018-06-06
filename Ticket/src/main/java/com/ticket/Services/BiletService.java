@@ -31,14 +31,6 @@ public class BiletService {
 		return bRepository.getBiletById(id);
 	}
 	
-	Bilet findBiletByImie(String imie) {
-		return bRepository.getBiletByImie(imie);
-	}
-	
-	Bilet findBiletByNazwisko(String nazwisko) {
-		return bRepository.getBiletByNazwisko(nazwisko);
-	}
-		
 	public void rezerwujBilet(Bilet b) {
 		bRepository.save(b);
 	}
@@ -53,5 +45,9 @@ public class BiletService {
 			miejsca.add(b.getMiejsce());
 		}
 		return miejsca;
+	}
+	
+	public void usunBilet(int id) {
+		bRepository.deleteById(id);
 	}
 }
