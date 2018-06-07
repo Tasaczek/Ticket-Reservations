@@ -1,46 +1,29 @@
 package com.ticket.Controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-
-import java.io.Console;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.yaml.snakeyaml.util.ArrayUtils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticket.Model.*;
 import com.ticket.Services.*;
 
 @Controller
 public class EntityController {
 	
-	private final int ilosc_miejsc = 50;	//lista miejsc ma sie odwolywac do tej stałej, wybieranie w np polu graficznym
-											//wolne miejsca - zielony kolor, zajete miejsca - czerwony np.
-	
 	@Autowired
 	private FilmService fS;
 	
 	@Autowired
 	private GatunekService gS;
-	
-	@Autowired
-	private MiejsceService mS;
 	
 	@Autowired
 	private RezyserService rS;
@@ -215,13 +198,18 @@ public class EntityController {
 	
 	@PostMapping(value="/reservations")
 	public String rezerwujBiletPost(@ModelAttribute Bilet bilet, HttpServletRequest request, BindingResult bindingResult) {
-		
+			
 		if(request.getParameter("miejsce")==null) {
 			request.setAttribute("error", "Wybierz miejsce!");
-		}
+		}		
 		else {
-			if(bS.getBiletByMiejsce(bilet.getMiejsce())==null)
+			if(bS.getBiletByMiejsce(bilet.getMiejsce())==null) {
 				bS.rezerwujBilet(bilet);
+				
+				Bilet n = bS.getBiletByMiejsce(bilet.getMiejsce());
+				createPDF pdf = new createPDF(n);	//tworzenie obiektu PDF
+				pdf.run();	//stworzenie pliku PDF
+			}
 			return "redirect:/tickets";
 		}
 		return "filmy";
@@ -235,24 +223,6 @@ public class EntityController {
 	}
 
 	public String edytujBilet() {
-	
-		return "index";
-	}
-	
-	/*--------------------*/
-	
-	
-	public String dodajMiejsce() {
-		
-		return "index";
-	}
-	
-	public String usunMiejsce() {
-		
-		return "index";
-	}
-
-	public String edytujMiejsce() {
 	
 		return "index";
 	}

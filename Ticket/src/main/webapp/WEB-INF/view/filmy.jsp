@@ -160,7 +160,7 @@
 		<c:when test="${mode=='MODE_RESERVATIONS'}">
 			<div class="container" id="homediv">
 				<h1>Rezerwuj bilet</h1>
-				<form method="post" action="/reservations">
+				<form name="form1" method="post" action="/reservations" onsubmit="return validateForm()">
 					<p>
 						Imię: <input type="text" name="imie" maxlength="25" required />
 					</p>
@@ -361,5 +361,13 @@
 			});
 		}
 	});
+	
+	function validateForm(){
+		var x = document.forms["form1"]["miejsce"].value;
+		if(x==""){
+			alert("Wybierz miejsce!");
+			return false;
+		}
+	}
 </script>
 </html>
