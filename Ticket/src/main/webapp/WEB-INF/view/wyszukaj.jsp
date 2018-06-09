@@ -7,9 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-<title>Home</title>
-
+<title>Wyszukaj film</title>
 </head>
+
+<style>
+	.btn{
+		margin:auto;
+		margin-top:20px;
+		height: 80px;
+		width: 300px;
+		display: block;
+	}
+	.title {
+		margin-bottom:40px;
+	}
+		
+</style>
+
 <body>
 	<div role="navigation">
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
@@ -21,38 +35,27 @@
 		</nav>
 	</div>
 	
-	<c:choose>
-		<c:when test="${mode=='MODE_TIMES'}">
-			<div class="container" id="homediv">
-				<div class="text-center">
-					<h2 class="h">Szukaj według terminów</h2>
-					<div class="table-responsive">
-						<table class="table table-striped table-bordered tb">
-							<thead>
-								<tr>
-									<th class="text-center">Godzina</th>
-									<th class="text-center">Dzień</th>
-									<th class="text-center">Wybierz</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="termin" items="${terminy}">
-									<tr>
-										<td>${termin.godzina}</td>
-										<td>${termin.dzien}</td>
-										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<a href="./home">Strona główna</a>
-					</div>
-				</div>
-			</div>
-		</c:when>
-	</c:choose>
+	<div class="container text-center" id="homediv">
+				<h1 class="title">Wybierz kryterium wyszukiwania</h1>
 
-
+				<a href="/versions">
+				 <button class="btn btn-info pion" type="submit"><font size="5">Wersja filmu</font></button>
+				</a>
+				
+				<a href="/genres">
+				 <button class="btn btn-info pion" type="submit"><font size="5">Gatunek</font></button>
+				</a>
+				
+				<a href="/directors">
+				 <button class="btn btn-info pion" type="submit"><font size="5">Reżyser</font></button>
+				</a>
+				
+				<a href="/times">
+				 <button class="btn btn-info pion" type="submit"><font size="5">Termin</font></button>
+				</a>
+										
+	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </body>

@@ -6,15 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
 <title>Home</title>
+
 </head>
 <body>
 	<div role="navigation">
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Szukaj</a></li>
+				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
 			</ul>
 		</nav>
@@ -28,8 +29,8 @@
 				</div>
 			</div>
 
-			<div class="alert alert-success">
-				<h4>Sesja 1: Obecny weekend!</h4>
+			<div class="alert alert-success" id="footer">
+				<p id="date"></p>
 			</div>
 		</c:when>
 
@@ -63,6 +64,18 @@
 			</div>
 		</c:when>
 	</c:choose>
+	
+	<script>
+		const monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+			  "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"
+			];
+	
+		n = new Date();
+		y = n.getFullYear();
+		d = n.getDate();
+		if(d<10) d = "0" + d;
+		document.getElementById("date").innerHTML ="Aktualna data: " + d + " " + monthNames[n.getMonth()] + " " + y;
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

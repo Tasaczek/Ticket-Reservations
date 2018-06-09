@@ -251,4 +251,10 @@ public class EntityController {
 		return "index";
 	}
 	
+	@GetMapping(value="/szukaj")
+	public String wyszukajPo() {
+		
+		return "wyszukaj";
+	}
+	
 }

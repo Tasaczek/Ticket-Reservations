@@ -8,75 +8,43 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
 <title>Home</title>
+
 </head>
 <body>
 	<div role="navigation">
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Looking for</a></li>
-				<li><a href="/movies">Films</a></li>
-				<li><c:choose>
-						<c:when test="${not empty power}">
-							<a href="#">Edycja</a>
-						</c:when>
-					</c:choose></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><c:choose>
-						<c:when test="${empty loggedInUser}">
-							<a href="#"><span class="glyphicon glyphicon-user"></span>Sign
-								Up</a>
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${not empty loggedInUser}">
-							<a href="#"><span class="glyphicon glyphicon-user"></span>Hello
-								${loggedInUser}!</a>
-
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${empty loggedInUser}">
-							<a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
-						</c:when>
-					</c:choose></li>
-				<li><c:choose>
-						<c:when test="${not empty loggedInUser}">
-							<a href="/logout">Logout</a>
-						</c:when>
-					</c:choose></li>
+				<li><a href="/szukaj">Szukaj</a></li>
+				<li><a href="/movies">Filmy</a></li>
 			</ul>
 		</nav>
 	</div>
+	
 	<c:choose>
 		<c:when test="${mode=='MODE_GENRES'}">
 			<div class="container" id="homediv">
 				<div class="text-center">
-					<h3>Lista gatunków</h3>
+					<h2 class="h">Szukaj według gatunków</h2>
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered">
+						<table class="table table-striped table-bordered tb">
 							<thead>
 								<tr>
-									<th>Nazwa</th>
-									<th>Opcje</th>
+									<th class="text-center">Gatunek</th>
+									<th class="text-center">Wybierz</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="gatunek" items="${gatunki}">
 									<tr>
 										<td>${gatunek.nazwa}</td>
-										<td><a href="#"><span
-												class="glyphicon glyphicon-trash"></span></a> &nbsp;&nbsp;
- 										<a href="#"><span
-												class="glyphicon glyphicon-pencil"></span></a></td>
+										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="#">Dodaj gatunek</a><br /> 
 						<a href="./home">Strona główna</a>
 					</div>
 				</div>

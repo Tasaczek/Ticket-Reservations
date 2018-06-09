@@ -11,97 +11,8 @@
 <link href="static/css/style.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
 <title>Home</title>
-<style>
-.ekran {
-	font-size: 25px;
-	background-color: #2222AA;
-	color: white;
-	width: 90%;
-	margin-bottom: 25px;
-}
-
-.fotel_rz {
-	text-align: center;
-	width: 510px;
-	background: #e0e0e0;
-	clear: both;
-}
-
-.fotel {
-	width: 20px;
-	font-size: 10px;
-	font-family: "Tahoma";
-	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: pointer;
-	cursor: hand;
-	margin-top: 2px;
-	margin-left: 2px;
-	padding: 1px;
-	background: lightgray;
-	color: black;
-}
-
-.fotel_nr {
-	width: 18px;
-	font-weight: bold;
-	font-size: 12px;
-	font-family: "Tahoma";
-	display: inline-block;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: default;
-	color: #FC2D1B;
-	margin-right: 4px;
-	margin-top: 2px;
-	margin-left: 4px;
-	padding: 1px;
-}
-
-@media ( min-width : 979px) {
-	.fotel_rz {
-		width: 700px;
-	}
-	.fotel, .fotel_nr {
-		width: 22px;
-		font-size: 12px;
-	}
-}
-
-.fotel {
-	color: rgba(38, 38, 00, 1);
-	border-color: rgba(38, 38, 0, 1);
-	background-color: rgba(103, 153, 85, 1);
-}
-
-.ekran {
-	text-align: center;
-	background: black;
-	clear: both;
-	color: silver;
-	padding: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
-.w {
-	border-color: rgba(38, 38, 0, 1);
-	background-color: rgba(120, 170, 60, 1);
-}
-</style>
 
 </head>
 <body>
@@ -109,16 +20,12 @@
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Szukaj</a></li>
+				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
-				<li><c:choose>
-						<c:when test="${not empty power}">
-							<a href="#">Edycja</a>
-						</c:when>
-					</c:choose></li>
 			</ul>
 		</nav>
 	</div>
+	
 	<c:choose>
 		<c:when test="${mode=='MODE_MOVIES'}">
 			<div class="container" id="homediv">

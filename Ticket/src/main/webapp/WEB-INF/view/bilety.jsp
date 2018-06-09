@@ -8,7 +8,7 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
 <title>Home</title>
 </head>
 <body>
@@ -16,16 +16,12 @@
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Szukaj</a></li>
+				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
-				<li><c:choose>
-						<c:when test="${not empty power}">
-							<a href="#">Edycja</a>
-						</c:when>
-					</c:choose></li>
 			</ul>
 		</nav>
 	</div>
+	
 	<c:choose>
 		<c:when test="${mode=='MODE_TICKETS'}">
 			<div class="container" id="homediv">
