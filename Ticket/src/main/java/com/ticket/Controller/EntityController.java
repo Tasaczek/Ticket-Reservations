@@ -40,6 +40,12 @@ public class EntityController {
 	@Autowired
 	private BiletService bS;
 	
+	@RequestMapping(value = {"/","/home"})
+	public String Welcome(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "index";
+	}
+	
 	/*-------------------FILM------------------------*/
 	
 	@RequestMapping("/movies")
@@ -202,14 +208,15 @@ public class EntityController {
 		if(request.getParameter("miejsce")==null) {
 			request.setAttribute("error", "Wybierz miejsce!");
 		}		
-		else {
-			if(bS.getBiletByMiejsce(bilet.getMiejsce())==null) {
-				bS.rezerwujBilet(bilet);
-				
-				Bilet n = bS.getBiletByMiejsce(bilet.getMiejsce());
-				createPDF pdf = new createPDF(n);	//tworzenie obiektu PDF
-				pdf.run();	//stworzenie pliku PDF
-			}
+		else {	
+				if(bS.getBiletByFilmIdAndMiejsce(bilet.getFilm().getId(), bilet.getMiejsce())==null) {
+					bS.rezerwujBilet(bilet);
+					
+					Bilet n = bS.getBiletByFilmIdAndMiejsce(bilet.getFilm().getId(),bilet.getMiejsce());
+					createPDF pdf = new createPDF(n);	//tworzenie obiektu PDF
+					pdf.run();	//stworzenie pliku PDF
+				}
+			
 			return "redirect:/tickets";
 		}
 		return "filmy";

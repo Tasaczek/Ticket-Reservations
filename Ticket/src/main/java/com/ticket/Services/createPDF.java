@@ -24,7 +24,7 @@ public class createPDF {
 
 	// funkcja tworząca plik pdf
 	public void run() {
-		final String FILE = "C:/Users/Tasaczek/Desktop/Bilet_" + bilet.getMiejsce() + ".pdf";
+		final String FILE = "C:/Users/Tasaczek/Desktop/Bilet_" + bilet.getMiejsce() + "_" + bilet.getFilm().getId() + ".pdf";
 		try {
 			Document document = new Document();
 			PdfWriter.getInstance(document, new FileOutputStream(FILE));

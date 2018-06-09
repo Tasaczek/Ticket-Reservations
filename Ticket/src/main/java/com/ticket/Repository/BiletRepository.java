@@ -9,6 +9,6 @@ import com.ticket.Model.Bilet;
 public interface BiletRepository extends CrudRepository<Bilet, Integer> {
 
 	Bilet getBiletById(int id);
-	Bilet getBiletByMiejsce(int miejsce);
+	Bilet getBiletByFilmIdAndMiejsce(int id, int miejsce);
 	List<Bilet> findBiletByFilmId(int id);
 }

@@ -35,8 +35,8 @@ public class BiletService {
 		bRepository.save(b);
 	}
 	
-	public Bilet getBiletByMiejsce(int miejsce) {
-		return bRepository.getBiletByMiejsce(miejsce);
+	public Bilet getBiletByFilmIdAndMiejsce(int id, int miejsce) {
+		return bRepository.getBiletByFilmIdAndMiejsce(id,miejsce);
 	}
 	
 	public List<Integer> zarMiejsca(int film){
