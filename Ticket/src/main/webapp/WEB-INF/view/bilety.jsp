@@ -24,7 +24,7 @@
 	
 	<c:choose>
 		<c:when test="${mode=='MODE_TICKETS'}">
-			<div class="container" id="homediv">
+			<div class="container">
 				<div class="container">
 					<h3>Lista biletów</h3>
 					<div class="table-responsive">
@@ -63,9 +63,13 @@
 			</div>
 		</c:when>
 	</c:choose>
-
+	
+	<div id="footer">
+		<p id="date"></p>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/js/script.js"></script>
 </body>
 </html>

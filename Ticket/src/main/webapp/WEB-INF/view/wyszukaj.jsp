@@ -10,20 +10,6 @@
 <title>Wyszukaj film</title>
 </head>
 
-<style>
-	.btn{
-		margin:auto;
-		margin-top:20px;
-		height: 80px;
-		width: 300px;
-		display: block;
-	}
-	.title {
-		margin-bottom:40px;
-	}
-		
-</style>
-
 <body>
 	<div role="navigation">
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
@@ -35,28 +21,33 @@
 		</nav>
 	</div>
 	
-	<div class="container text-center" id="homediv">
+	<div class="container text-center">
 				<h1 class="title">Wybierz kryterium wyszukiwania</h1>
 
 				<a href="/versions">
-				 <button class="btn btn-info pion" type="submit"><font size="5">Wersja filmu</font></button>
+				 <button class="btn btn-info" id="wybor" type="submit"><font size="5">Wersja filmu</font></button>
 				</a>
 				
 				<a href="/genres">
-				 <button class="btn btn-info pion" type="submit"><font size="5">Gatunek</font></button>
+				 <button class="btn btn-info" id="wybor" type="submit"><font size="5">Gatunek</font></button>
 				</a>
 				
 				<a href="/directors">
-				 <button class="btn btn-info pion" type="submit"><font size="5">Reżyser</font></button>
+				 <button class="btn btn-info" id="wybor" type="submit"><font size="5">Reżyser</font></button>
 				</a>
 				
 				<a href="/times">
-				 <button class="btn btn-info pion" type="submit"><font size="5">Termin</font></button>
+				 <button class="btn btn-info" id="wybor" type="submit"><font size="5">Termin</font></button>
 				</a>
 										
 	</div>
 	
+	<div id="footer">
+		<p id="date"></p>
+	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/js/script.js"></script>
 </body>
 </html>

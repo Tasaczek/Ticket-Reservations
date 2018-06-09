@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+
 <title>Home</title>
 
 </head>
@@ -23,14 +24,10 @@
 
 	<c:choose>
 		<c:when test="${mode=='MODE_HOME'}">
-			<div class="container" id="homediv">
+			<div class="container">
 				<div class="jumbotron text-center">
 					<h1>Strona główna kina</h1>
 				</div>
-			</div>
-
-			<div class="alert alert-success" id="footer">
-				<p id="date"></p>
 			</div>
 		</c:when>
 
@@ -65,19 +62,12 @@
 		</c:when>
 	</c:choose>
 	
-	<script>
-		const monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
-			  "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"
-			];
+	<div id="footer">
+		<p id="date"></p>
+	</div>
 	
-		n = new Date();
-		y = n.getFullYear();
-		d = n.getDate();
-		if(d<10) d = "0" + d;
-		document.getElementById("date").innerHTML ="Aktualna data: " + d + " " + monthNames[n.getMonth()] + " " + y;
-	</script>
-
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/js/script.js"></script>
 </body>
 </html>

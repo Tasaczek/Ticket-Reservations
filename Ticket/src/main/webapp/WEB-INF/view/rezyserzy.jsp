@@ -25,9 +25,9 @@
 	
 	<c:choose>
 		<c:when test="${mode=='MODE_DIRECTORS'}">
-			<div class="container" id="homediv">
+			<div class="container"v">
 				<div class="text-center">
-					<h3 class="h">Szukaj według reżyserów</h3>
+					<h2 class="h">Szukaj według reżyserów</h2>
 					<div class="table-responsive">
 						<table class="table table-striped table-bordered tb">
 							<thead>
@@ -52,8 +52,12 @@
 		</c:when>
 	</c:choose>
 
+	<div id="footer">
+		<p id="date"></p>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/js/script.js"></script>
 </body>
 </html>
