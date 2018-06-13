@@ -40,7 +40,7 @@
 									<tr>
 										<td>${termin.godzina}</td>
 										<td>${termin.dzien}</td>
-										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+										<td><a href="/wybierz?id=${termin.id}&t=t"><span class="glyphicon glyphicon-hand-left"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -32,4 +32,36 @@ public class FilmService {
 		
 		return film;
 	}
+	
+	public List<Film> filmyPoGatunku(int id){
+		List<Film> filmy = new ArrayList<>();
+		for(Film f:fRepository.getFilmsByGatunekId(id))
+			filmy.add(f);
+
+		return filmy;
+	}
+	
+	public List<Film> filmyPoWersji(int id){
+		List<Film> filmy = new ArrayList<>();
+		for(Film f:fRepository.getFilmsByWersjaId(id))
+			filmy.add(f);
+
+		return filmy;
+	}
+	
+	public List<Film> filmyPoRezyserach(int id){
+		List<Film> filmy = new ArrayList<>();
+		for(Film f:fRepository.getFilmsByRezyserId(id))
+			filmy.add(f);
+		
+		return filmy;
+	}
+	
+	public List<Film> filmyPoTerminie(int id){
+		List<Film> filmy = new ArrayList<>();
+		for(Film f:fRepository.getFilmsByTerminId(id))
+			filmy.add(f);
+
+		return filmy;
+	}
 }

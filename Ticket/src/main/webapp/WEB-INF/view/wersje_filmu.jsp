@@ -40,7 +40,7 @@
 								<c:forEach var="wersja" items="${wersje}">
 									<tr>
 										<td>${wersja.nazwa}</td>
-										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+										<td><a href="/wybierz?id=${wersja.id}&t=w"><span class="glyphicon glyphicon-hand-left"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

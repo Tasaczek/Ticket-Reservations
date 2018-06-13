@@ -40,7 +40,7 @@
 								<c:forEach var="rezyser" items="${rezyserzy}">
 									<tr>
 										<td>${rezyser.imie}&nbsp;${rezyser.nazwisko}</td>
-										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+										<td><a href="/wybierz?id=${rezyser.id}&t=r"><span class="glyphicon glyphicon-hand-left"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

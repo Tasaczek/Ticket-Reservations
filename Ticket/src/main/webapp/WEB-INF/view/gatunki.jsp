@@ -40,7 +40,7 @@
 								<c:forEach var="gatunek" items="${gatunki}">
 									<tr>
 										<td>${gatunek.nazwa}</td>
-										<td><a href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+										<td><a href="/wybierz?id=${gatunek.id}&t=g"><span class="glyphicon glyphicon-hand-left"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

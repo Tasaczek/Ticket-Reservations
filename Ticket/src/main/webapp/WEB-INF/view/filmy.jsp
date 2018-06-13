@@ -64,6 +64,15 @@
 				</div>
 			</div>
 		</c:when>
+		<c:when test="${mode=='MODE_NULL'}">
+			<div class="container">
+				<div class="container text-center">
+					<h3>${filmy}</h3>
+					<br/>
+					<a href="./szukaj">Powrót do kryteriów</a>
+				</div>
+			</div>
+		</c:when>
 		<c:when test="${mode=='MODE_RESERVATIONS'}">
 			<div class="container" id="homediv">
 				<h1>Rezerwuj bilet</h1>
