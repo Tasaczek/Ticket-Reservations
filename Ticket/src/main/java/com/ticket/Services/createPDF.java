@@ -23,16 +23,19 @@ public class createPDF {
 	}
 
 	// funkcja tworząca plik pdf
-	public void run() {
-		final String FILE = "C:/Users/Tasaczek/Desktop/Bilet_" + bilet.getMiejsce() + "_" + bilet.getFilm().getId() + ".pdf";
+	public String run() {
+		final String FILE = "./src/main/resources/pliki/Bilet_" + bilet.getMiejsce() + "_" + bilet.getFilm().getId() + ".pdf";
+		final String FileName = "Bilet_" + bilet.getMiejsce() + "_" + bilet.getFilm().getId() + ".pdf";
 		try {
 			Document document = new Document();
 			PdfWriter.getInstance(document, new FileOutputStream(FILE));
 			document.open();
 			addContent(document);
 			document.close();
+			return FileName;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 

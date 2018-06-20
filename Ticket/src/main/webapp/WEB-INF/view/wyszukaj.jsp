@@ -17,6 +17,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
+				<li><a href="/pobierzBilet">Pobierz bilet</a></li>
 			</ul>
 		</nav>
 	</div>

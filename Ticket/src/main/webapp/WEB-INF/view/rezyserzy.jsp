@@ -9,7 +9,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-<title>Home</title>
+<title>Reżyserzy</title>
 
 </head>
 <body>
@@ -19,6 +19,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
+				<li><a href="/pobierzBilet">Pobierz bilet</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -45,7 +46,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="./home">Strona główna</a>
+						<a href="/home"><button type="button" class="btn btn-primary">Powrót</button></a>
 					</div>
 				</div>
 			</div>

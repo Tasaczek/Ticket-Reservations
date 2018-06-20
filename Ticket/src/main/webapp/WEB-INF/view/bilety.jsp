@@ -9,7 +9,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-<title>Home</title>
+<title>Bilety</title>
 </head>
 <body>
 	<div role="navigation">
@@ -18,6 +18,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
+				<li><a href="/pobierzBilet">Pobierz bilet</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -37,7 +38,6 @@
 									<th>Rodzaj</th>
 									<th>Cena</th>
 									<th>Miejsce</th>
-									<th>Opcje</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,15 +49,11 @@
 										<td>${bilet.rodzaj.nazwa}</td>
 										<td>${bilet.rodzaj.cena} zł</td>
 										<td>${bilet.miejsce}</td>
-										<td><a href="/del-ticket?id=${bilet.id}"><span
-												class="glyphicon glyphicon-trash"></span></a> &nbsp; <a
-											href="#"><span
-												class="glyphicon glyphicon-pencil"></span></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="./home">Strona główna</a>
+						<a href="/home"><button type="button" class="btn btn-primary">Strona główna</button></a>
 					</div>
 				</div>
 			</div>

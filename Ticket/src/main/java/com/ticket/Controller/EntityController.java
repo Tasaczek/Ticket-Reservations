@@ -1,17 +1,28 @@
 package com.ticket.Controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ticket.Model.*;
 import com.ticket.Services.*;
@@ -174,7 +185,7 @@ public class EntityController {
 
 	@PostMapping(value = "/reservations")
 	public String rezerwujBiletPost(@ModelAttribute Bilet bilet, HttpServletRequest request,
-			BindingResult bindingResult) {
+			BindingResult bindingResult, RedirectAttributes redirectAttrib) {
 
 		if (request.getParameter("miejsce") == null) {
 			request.setAttribute("error", "Wybierz miejsce!");
@@ -184,19 +195,47 @@ public class EntityController {
 
 				Bilet n = bS.getBiletByFilmIdAndMiejsce(bilet.getFilm().getId(), bilet.getMiejsce());
 				createPDF pdf = new createPDF(n); // tworzenie obiektu PDF
-				pdf.run(); // stworzenie pliku PDF
+				String url = pdf.run(); // stworzenie pliku PDF
+				
+				redirectAttrib.addAttribute("url",url);	//atrybut przekazywany do f. wyświetlającej link
 			}
 
-			return "redirect:/tickets";
+			return "redirect:/link";
 		}
 		return "filmy";
 	}
 
-	@RequestMapping(value = "/del-ticket")
-	public String usunBilet(@RequestParam int id) {
-		bS.usunBilet(id);
+	//Link do pobrania biletu
+	@GetMapping(value="/link")
+	public String linkDoBiletu(@RequestParam String url,HttpServletRequest request) {
 
-		return "redirect:/tickets";
+		request.setAttribute("adr", url);
+		return "link";
+	}
+	
+	//Pobranie biletu
+	@GetMapping(value="/pobierzBilet")
+	public String pobierzBilet() {
+		
+		return "pobierzBilet";
+	}
+
+	@PostMapping(value="/pobierzBilet")
+	public String downloadBilet(HttpServletRequest request, HttpServletResponse response, @RequestParam(value="link",required=false) String link) {
+		
+		try {
+			DefaultResourceLoader loader = new DefaultResourceLoader();
+			InputStream is = loader.getResource("file:./src/main/resources/pliki/"+link).getInputStream();
+			//classpath: trzeba zamienic na file: do bezpośredniego działania
+			IOUtils.copy(is, response.getOutputStream());
+			response.setContentType("application/pdf");
+			response.setHeader("Content-Disposition", "attachment; filename=Bilet.pdf");
+	        response.flushBuffer();
+		} catch(IOException ex) {
+			ex.printStackTrace();
+		}
+		
+		return "pobierzBilet";
 	}
 
 	/*--------------------*/

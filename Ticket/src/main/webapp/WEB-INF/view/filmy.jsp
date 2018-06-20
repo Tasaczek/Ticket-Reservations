@@ -12,7 +12,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-<title>Home</title>
+<title>Filmy</title>
 
 </head>
 <body>
@@ -22,6 +22,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/szukaj">Szukaj</a></li>
 				<li><a href="/movies">Filmy</a></li>
+				<li><a href="/pobierzBilet">Pobierz bilet</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -59,7 +60,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="./home">Strona główna</a>
+						<a href="/home"><button type="button" class="btn btn-primary">Powrót</button></a>
 					</div>
 				</div>
 			</div>
@@ -229,8 +230,8 @@
 						<font color="yellow"><b>Żółty</b></font> - miejsce wybrane przez użytkownika
 					</p>
 					<br />
-					<button type="submit" class="btn btn-success">Rezerwuj</button>
-					<a href="/movies"><button type="button" class="btn btn-warning">Powrót</button></a>
+					<a href="/link"><button type="submit" class="btn btn-success">Rezerwuj</button></a>
+					<a href="/movies"><button type="button" class="btn btn-primary">Powrót</button></a>
 				</form>
 			</div>
 		</c:when>
