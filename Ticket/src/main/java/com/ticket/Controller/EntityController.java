@@ -160,15 +160,6 @@ public class EntityController {
 
 	/*--------------------BILET-----------------------*/
 
-	@RequestMapping("/tickets")
-	public String listaBiletow(HttpServletRequest request) {
-		List<Bilet> bilety = bS.listaBiletow();
-		request.setAttribute("bilety", bilety);
-		request.setAttribute("mode", "MODE_TICKETS");
-
-		return "bilety";
-	}
-
 	@GetMapping(value = "/reservations")
 	public String rezerwujBilet(HttpServletRequest request, @RequestParam int id) {
 		Film f = fS.getFilmById(id);
