@@ -10,7 +10,7 @@
 <title>Wyszukaj film</title>
 </head>
 
-<body>
+<body class="tlo">
 	<div role="navigation">
 		<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
 			<a class="navbar-brand" href="/home">Home</a>
